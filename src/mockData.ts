@@ -1,0 +1,391 @@
+import { DPPInstance, ComplianceCert, LogisticsNode } from './types';
+
+export interface CarbonData {
+  stage: string;
+  emissions: number;
+  unit: string;
+  details?: { 
+    name: string; 
+    value: number; 
+    dataPoints?: { label: string; value: string }[] 
+  }[];
+}
+
+export interface CarbonSaving {
+  initiative: string;
+  saving: number;
+  unit: string;
+  description: string;
+}
+
+export const mockCarbonData: CarbonData[] = [
+  { 
+    stage: '原材料 / Raw Material', 
+    emissions: 1.2, 
+    unit: 'kg CO2e',
+    details: [
+      { 
+        name: '有机棉种植 / Cotton Farming', 
+        value: 0.8,
+        dataPoints: [
+          { label: '灌溉能耗 / Irrigation Energy', value: '120 kWh' },
+          { label: '化肥使用 / Fertilizer Use', value: '45 kg' },
+          { label: '土地利用 / Land Use', value: '0.5 ha' }
+        ]
+      },
+      { 
+        name: '纤维加工 / Fiber Processing', 
+        value: 0.3,
+        dataPoints: [
+          { label: '电力消耗 / Electricity', value: '85 kWh' },
+          { label: '热能消耗 / Thermal', value: '12 MJ' }
+        ]
+      },
+      { name: '辅料生产 / Trimmings', value: 0.1 }
+    ]
+  },
+  { 
+    stage: '生产制造 / Manufacturing', 
+    emissions: 2.5, 
+    unit: 'kg CO2e',
+    details: [
+      { 
+        name: '纺纱织造 / Spinning & Weaving', 
+        value: 1.1,
+        dataPoints: [
+          { label: '设备电力 / Machine Power', value: '450 kWh' },
+          { label: '车间照明 / Lighting', value: '25 kWh' }
+        ]
+      },
+      { 
+        name: '染色整理 / Dyeing & Finishing', 
+        value: 0.9,
+        dataPoints: [
+          { label: '水处理 / Water Treatment', value: '2.5 m³' },
+          { label: '蒸汽消耗 / Steam', value: '150 kg' }
+        ]
+      },
+      { name: '成衣缝制 / Cut & Sew', value: 0.5 }
+    ]
+  },
+  { 
+    stage: '物流运输 / Logistics', 
+    emissions: 0.4, 
+    unit: 'kg CO2e',
+    details: [
+      { name: '工厂至仓库 / Factory to DC', value: 0.15 },
+      { name: '干线运输 / Mainline Freight', value: 0.2 },
+      { name: '最后一公里 / Last Mile', value: 0.05 }
+    ]
+  },
+  { 
+    stage: '分销零售 / Distribution', 
+    emissions: 0.2, 
+    unit: 'kg CO2e',
+    details: [
+      { name: '仓储能耗 / Warehousing', value: 0.12 },
+      { name: '门店运营 / Store Ops', value: 0.08 }
+    ]
+  },
+  { 
+    stage: '生命周期末端 / End-of-Life', 
+    emissions: 0.1, 
+    unit: 'kg CO2e',
+    details: [
+      { name: '回收处理 / Recycling', value: 0.04 },
+      { name: '废弃处置 / Disposal', value: 0.06 }
+    ]
+  },
+];
+
+export const mockCarbonSavings: CarbonSaving[] = [
+  { 
+    initiative: '可再生能源使用 / Renewable Energy', 
+    saving: 0.85, 
+    unit: 'kg CO2e', 
+    description: '工厂屋顶光伏发电系统供电 / Rooftop solar PV system' 
+  },
+  { 
+    initiative: '低碳物流优化 / Logistics Optimization', 
+    saving: 0.12, 
+    unit: 'kg CO2e', 
+    description: '优化配送路线及使用电动货车 / Route optimization & EV delivery' 
+  },
+  { 
+    initiative: '再生包装材料 / Recycled Packaging', 
+    saving: 0.05, 
+    unit: 'kg CO2e', 
+    description: '使用 100% 可回收纸盒包装 / 100% Recycled paper packaging' 
+  }
+];
+
+export const mockLogistics: LogisticsNode = {
+  id: 'LOG-001',
+  createdAt: '2026-03-24T10:00:00Z',
+  dataClassification: 'PUBLIC',
+  sourceType: 'ENTERPRISE',
+  shipmentId: 'SHIP-2026-X892',
+  origin: '苏州, 中国 (Suzhou, China)',
+  destination: '上海, 中国 (Shanghai, China)',
+  carrier: '顺丰速运 (SF Express)',
+  estimatedDelivery: '2026-03-26',
+  status: 'In Transit'
+};
+
+export const mockCertificates: ComplianceCert[] = [
+  {
+    id: 'CERT-001',
+    createdAt: '2025-10-15T00:00:00Z',
+    dataClassification: 'PUBLIC',
+    sourceType: 'CERTIFICATE',
+    certId: 'CERT-GOTS-2026-001',
+    certType: 'GOTS (Global Organic Textile Standard)',
+    issuer: 'Control Union',
+    issueDate: '2025-10-15',
+    expiryDate: '2026-10-14',
+    auditReport: 'https://example.com/reports/gots_audit.pdf',
+    blockchainHash: '0x8e8205b280b00b08be45822b30ec8a7...'
+  },
+  {
+    id: 'CERT-002',
+    createdAt: '2025-11-20T00:00:00Z',
+    dataClassification: 'PUBLIC',
+    sourceType: 'CERTIFICATE',
+    certId: 'CERT-OEKO-2026-042',
+    certType: 'OEKO-TEX Standard 100',
+    issuer: 'Hohenstein Institute',
+    issueDate: '2025-11-20',
+    expiryDate: '2026-11-19',
+    auditReport: 'https://example.com/reports/oeko_audit.pdf',
+    blockchainHash: '0x59bb49a6576088fb6c3bae9df3e4fba...'
+  },
+  {
+    id: 'CERT-003',
+    createdAt: '2025-09-05T00:00:00Z',
+    dataClassification: 'PUBLIC',
+    sourceType: 'CERTIFICATE',
+    certId: 'CERT-GRS-2026-088',
+    certType: 'GRS (Global Recycled Standard)',
+    issuer: 'SGS',
+    issueDate: '2025-09-05',
+    expiryDate: '2026-09-04',
+    auditReport: 'https://example.com/reports/grs_audit.pdf',
+    blockchainHash: '0x3c2a9f1b7d5e4c8a0b9d8f7e6c5b4a3...'
+  },
+  {
+    id: 'CERT-004',
+    createdAt: '2025-08-12T00:00:00Z',
+    dataClassification: 'PUBLIC',
+    sourceType: 'CERTIFICATE',
+    certId: 'CERT-ISO-2026-152',
+    certType: 'ISO 14001:2015',
+    issuer: 'Intertek',
+    issueDate: '2025-08-12',
+    expiryDate: '2026-08-11',
+    auditReport: 'https://example.com/reports/iso_audit.pdf',
+    blockchainHash: '0x1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6...'
+  }
+];
+
+export const mockDPP: DPPInstance = {
+  id: 'DPP-2026-001',
+  createdAt: '2026-03-18T14:20:05Z',
+  dataClassification: 'PUBLIC',
+  sourceType: 'ENTERPRISE',
+  blockchainHash: '0xe8205b280b00b08be45822b30ec8a759bb49a6576088fb6c3bae9df3e4fba77d9f',
+  passportId: 'AAAA01010124012612345601',
+  version: 'V1.2.0',
+  issueDate: '2026-03-18',
+  issuer: 'EcoMode 环保时尚服饰集团',
+  dppId: 'AAAA01010124012612345601',
+  blockchainRecord: '0xe8205b280b00b08be45822b30ec8a759bb49a6576088fb6c3bae9df3e4fba77d9f',
+  digitalLink: 'https://dpp.com/api/06901002233/401',
+  logistics: mockLogistics,
+  status: 'Original',
+  usage: {
+    currentStatus: '正常使用中 / In Use',
+    lastMaintenance: '2026-03-20',
+    estimatedLifeMonths: 36,
+    usageCount: 12
+  },
+  endOfLife: {
+    recyclingInstructions: '请移除金属拉链后投入织物回收箱。 / Remove metal zippers before textile recycling.',
+    resalePlatforms: [
+      { name: '闲鱼 (Xianyu)', url: '#' },
+      { name: '多抓鱼 (Deja Vu)', url: '#' }
+    ],
+    takeBackProgram: 'EcoMode 门店回收计划 - 可换取 50 积分 / EcoMode Store Take-back (50 pts)'
+  },
+  product: {
+    id: 'PM-001',
+    createdAt: '2026-01-10T08:00:00Z',
+    dataClassification: 'PUBLIC',
+    sourceType: 'ENTERPRISE',
+    blockchainHash: '0xabc123...',
+    productId: 'PRD-2026-TEE',
+    sku: 'TEE-WHT-ORG-M',
+    productName: '可持续有机纯棉经典T恤',
+    brandName: 'EcoMode 环保时尚服饰集团',
+    materialComposition: [{ fiber: '有机棉', pct: 100 }],
+    packaging: '再生纸盒',
+    gb18401Category: 'B',
+    careLabelSymbols: ['wash_40', 'no_bleach', 'tumble_dry_low'],
+    availableColors: [
+      { name: '经典白 / Classic White', hex: '#FFFFFF' },
+      { name: '极夜黑 / Midnight Black', hex: '#1A1A1A' },
+      { name: '森林绿 / Forest Green', hex: '#2D4B3E' },
+      { name: '燕麦色 / Oat Milk', hex: '#E5DED1' }
+    ]
+  },
+  materials: {
+    fiberOrigin: [
+      {
+        id: 'FO-001',
+        createdAt: '2025-09-15T10:00:00Z',
+        dataClassification: 'PUBLIC',
+        sourceType: 'CERTIFICATE',
+        blockchainHash: '0xfo123...',
+        fiberType: '有机棉 (Organic Cotton)',
+        originCountry: '中国 (China)',
+        farmLocation: '新疆某有机棉基地',
+        harvestDate: '2025-09-10',
+        certificationId: 'GOTS-992-12'
+      }
+    ],
+    materialBatch: [
+      {
+        id: 'MB-001',
+        createdAt: '2025-10-01T09:00:00Z',
+        dataClassification: 'RESTRICTED',
+        sourceType: 'ENTERPRISE',
+        blockchainHash: '0xmb123...',
+        batchId: 'BAT-2025-COT-01',
+        materialName: '原棉 (Raw Cotton)',
+        weight: 5000,
+        unit: 'kg',
+        supplierName: '天山棉业有限公司',
+        arrivalDate: '2025-09-28'
+      }
+    ],
+    yarnSpinning: [
+      {
+        id: 'YS-001',
+        createdAt: '2025-11-05T14:00:00Z',
+        dataClassification: 'RESTRICTED',
+        sourceType: 'ENTERPRISE',
+        blockchainHash: '0xys123...',
+        yarnId: 'YRN-40S-ORG',
+        spinningMethod: '环锭纺 (Ring Spinning)',
+        yarnCount: '40S',
+        factoryName: '华东第一纺织厂',
+        productionDate: '2025-11-01'
+      }
+    ],
+    fabricWeaving: [
+      {
+        id: 'FW-001',
+        createdAt: '2025-12-10T11:00:00Z',
+        dataClassification: 'RESTRICTED',
+        sourceType: 'ENTERPRISE',
+        blockchainHash: '0xfw123...',
+        fabricId: 'FAB-JSY-180',
+        weaveType: '平纹汗布 (Single Jersey)',
+        density: '180 GSM',
+        factoryName: '苏南精工织造厂',
+        weavingDate: '2025-12-05'
+      }
+    ],
+    dyeingFinishing: [
+      {
+        id: 'DF-001',
+        createdAt: '2026-01-15T16:00:00Z',
+        dataClassification: 'CONFIDENTIAL',
+        sourceType: 'ENTERPRISE',
+        blockchainHash: '0xdf123...',
+        processId: 'PRC-DYE-WHT',
+        dyeType: '活性染料 (Reactive Dye)',
+        finishingMethod: '预缩整理 (Sanforizing)',
+        factoryName: '绿色生态印染中心',
+        completionDate: '2026-01-12'
+      }
+    ],
+    garmentManufacturing: {
+      id: 'GM-001',
+      createdAt: '2026-03-15T08:00:00Z',
+      dataClassification: 'RESTRICTED',
+      sourceType: 'ENTERPRISE',
+      blockchainHash: '0xgm123...',
+      garmentBatchId: '00PPB2AMVV991S2471112232',
+      factoryName: '苏南精工成衣代工厂',
+      manufacturingDate: '2026-03-15',
+      renewableEnergyRatio: 45.5,
+      countryOfProduction: '中国/China'
+    },
+    qualityControl: [
+      {
+        id: 'QC-001',
+        createdAt: '2026-03-16T10:00:00Z',
+        dataClassification: 'RESTRICTED',
+        sourceType: 'CERTIFICATE',
+        blockchainHash: '0xqc123...',
+        reportId: 'REP-QC-2026-001',
+        testItem: '甲醛含量 (Formaldehyde)',
+        result: 'PASS',
+        inspector: '张工 (Zhang)',
+        testDate: '2026-03-16'
+      }
+    ],
+    complianceCerts: [
+      {
+        id: 'CC-001',
+        createdAt: '2025-10-15T00:00:00Z',
+        dataClassification: 'PUBLIC',
+        sourceType: 'CERTIFICATE',
+        blockchainHash: '0xcc123...',
+        certId: 'CERT-GOTS-2026-001',
+        certType: 'GOTS (Global Organic Textile Standard)',
+        issuer: 'Control Union',
+        issueDate: '2025-10-15',
+        expiryDate: '2026-10-14',
+        auditReport: 'https://example.com/reports/gots_audit.pdf'
+      }
+    ],
+    packagingLabeling: {
+      id: 'PL-001',
+      createdAt: '2026-03-17T09:00:00Z',
+      dataClassification: 'PUBLIC',
+      sourceType: 'ENTERPRISE',
+      blockchainHash: '0xpl123...',
+      packagingId: 'PKG-BOX-01',
+      materialType: '再生纸 (Recycled Paper)',
+      labelType: 'RFID + QR Code',
+      recyclingInfo: '100% 可回收 (100% Recyclable)'
+    },
+    accessoriesBatch: [
+      {
+        id: 'AB-001',
+        createdAt: '2026-03-10T10:00:00Z',
+        dataClassification: 'PUBLIC',
+        sourceType: 'ENTERPRISE',
+        blockchainHash: '0xab123...',
+        accessoryBatchId: 'ACC-ZIP-YKK-01',
+        accessorySupplier: 'YKK 吉田拉链 (YKK Zippers)',
+        color: '深蓝 (Deep Blue)',
+        size: '20cm',
+        materialComposition: [{ fiber: 'Recycled Polyester', pct: 100 }]
+      },
+      {
+        id: 'AB-002',
+        createdAt: '2026-03-11T11:00:00Z',
+        dataClassification: 'PUBLIC',
+        sourceType: 'ENTERPRISE',
+        blockchainHash: '0xab456...',
+        accessoryBatchId: 'ACC-BTN-NAT-05',
+        accessorySupplier: '自然纽扣有限公司 (Natural Button Co.)',
+        color: '象牙白 (Ivory)',
+        size: '15mm',
+        materialComposition: [{ fiber: 'Corozo Nut', pct: 100 }]
+      }
+    ]
+  }
+};
