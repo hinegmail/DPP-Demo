@@ -5,7 +5,6 @@
 
 import React from 'react';
 import { 
-  QrCode, 
   ShieldCheck, 
   Leaf, 
   Truck, 
@@ -278,11 +277,12 @@ const ProductionFlowchart: React.FC = () => {
 
 const TABS = [
   { id: 'basic', label: '基本信息 / Basic Info' },
-  { id: 'materials', label: '全链路溯源 / Traceability' },
+  { id: 'materials', label: '供应链 / Supply Chain' },
   { id: 'carbon', label: '碳足迹 / Carbon Footprint' },
   { id: 'compliance', label: '尽职调查 / Due Diligence' },
   { id: 'logistics', label: '物流信息 / Logistics' },
   { id: 'status', label: '使用状态 / Operating Status' },
+  { id: 'passport', label: '数字护照 / Digital Passport' },
 ];
 
 export default function App() {
@@ -404,7 +404,7 @@ export default function App() {
               <ShieldCheck size={32} />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight text-blue-900">纺织护照数字化平台</h1>
+              <h1 className="text-2xl font-bold tracking-tight text-blue-900">纺织行业数字产品护照平台</h1>
               <p className="text-xs uppercase tracking-widest text-blue-400 font-semibold">Textile Passport Digital Platform</p>
             </div>
           </div>
@@ -416,7 +416,7 @@ export default function App() {
             </div>
             <div>
               <p className="uppercase opacity-60">产品类型 / Category:</p>
-              <p className="font-bold text-gray-800 text-sm">有机棉T恤 / Organic Tee</p>
+              <p className="font-bold text-gray-800 text-sm">桑蚕丝丝巾 / Silk Scarf</p>
             </div>
             <div>
               <p className="uppercase opacity-60">区块哈希 / Block Hash:</p>
@@ -424,7 +424,7 @@ export default function App() {
             </div>
             <div className="flex flex-col items-center">
               <div className="bg-gray-100 p-1 rounded">
-                <QrCode size={40} className="text-gray-800" />
+                <img src="/qc.png" alt="QR Code" width={40} height={40} className="text-gray-800" />
               </div>
               <p className="mt-1 scale-75 whitespace-nowrap">扫描二维码体验 / Scan</p>
             </div>
@@ -452,12 +452,9 @@ export default function App() {
               )}
             </button>
           ))}
-          <button className="pb-4 text-sm font-medium text-gray-400 flex items-center gap-1">
-            立即生成 / Generate <ChevronDown size={14} />
-          </button>
-        </nav>
+          </nav>
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           {activeTab === 'basic' && (
             <motion.div
               key="basic"
@@ -475,7 +472,7 @@ export default function App() {
                 />
                 <InfoCard 
                   label="纤维体系 / Composition" 
-                  value="100% 有机棉 (Organic Cotton)" 
+                  value="100% 桑蚕丝 (Mulberry Silk)" 
                   subValue="GOTS Certified Fiber"
                 />
                 <InfoCard 
@@ -499,7 +496,7 @@ export default function App() {
                 />
                 <ManufacturerCard 
                   title="设计研发 / Design & R&D"
-                  name="EcoMode 创新实验室"
+                  name="在宥创新实验室"
                   country="中国/China"
                 />
               </div>
@@ -702,6 +699,187 @@ export default function App() {
               </div>
             )}
           </AnimatePresence>
+          {activeTab === 'passport' && (
+              <motion.div
+                key="passport"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="space-y-6"
+              >
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden relative">
+                  {/* Watermark Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] rotate-[-30deg] select-none z-0">
+                    <div className="text-[80px] md:text-[120px] font-bold text-blue-900 border-[10px] md:border-[20px] border-blue-900 px-10 rounded-[40px] md:rounded-[60px] uppercase whitespace-nowrap">
+                      Digital Passport
+                    </div>
+                  </div>
+                  {/* 护照头部 */}
+                  <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-8">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h1 className="text-3xl font-bold mb-2">数字产品护照</h1>
+                        <p className="text-blue-100">Digital Product Passport</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm text-blue-100">护照编号</p>
+                        <p className="font-mono text-lg">{mockDPP.dppId}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 护照主体 */}
+                  <div className="p-8">
+                    {/* 产品图片和基本信息 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                      <div className="relative z-10">
+                        <img src="/dpp_product.png" alt="Product Image" className="w-full h-64 object-cover rounded-lg shadow-md" />
+                      </div>
+                      <div className="space-y-4 relative z-10">
+                        <div>
+                          <p className="text-sm text-gray-500 uppercase font-bold">产品名称 / Product Name</p>
+                          <p className="text-xl font-bold text-gray-800">{mockDPP.product.productName}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-gray-500 uppercase font-bold">品牌 / Brand</p>
+                          <p className="text-lg font-semibold text-gray-800">{mockDPP.product.brandName}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-gray-500 uppercase font-bold">序列号 / Serial Number</p>
+                          <p className="font-mono text-gray-800">{mockDPP.materials.garmentManufacturing.garmentBatchId}</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-gray-500 uppercase font-bold">发行日期 / Issue Date</p>
+                          <p className="text-gray-800">{mockDPP.issueDate}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* 护照信息表格 */}
+                    <div className="border-t pt-6">
+                      <h3 className="text-lg font-bold text-gray-800 mb-4">护照信息 / Passport Information</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-3">
+                          <div className="flex justify-between py-2 border-b">
+                            <span className="text-gray-600">护照ID / Passport ID</span>
+                            <span className="font-mono text-sm">{mockDPP.dppId}</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b">
+                            <span className="text-gray-600">版本 / Version</span>
+                            <span className="text-sm">{mockDPP.version}</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b">
+                            <span className="text-gray-600">发行机构 / Issuer</span>
+                            <span className="text-sm">{mockDPP.issuer}</span>
+                          </div>
+                        </div>
+                        <div className="space-y-3">
+                          <div className="flex justify-between py-2 border-b">
+                            <span className="text-gray-600">数据分类 / Classification</span>
+                            <span className="text-sm">{mockDPP.dataClassification}</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b">
+                            <span className="text-gray-600">区块链记录 / Blockchain</span>
+                            <span className="font-mono text-xs">{mockDPP.blockchainRecord?.slice(0, 20)}...</span>
+                          </div>
+                          <div className="flex justify-between py-2 border-b">
+                            <span className="text-gray-600">数字链接 / Digital Link</span>
+                            <span className="text-xs text-blue-600">{mockDPP.digitalLink}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* 材料信息 */}
+                    <div className="border-t pt-6 mt-6">
+                      <h3 className="text-lg font-bold text-gray-800 mb-4">材料信息 / Material Information</h3>
+                      <div className="bg-gray-50 rounded-lg p-4 relative z-10">
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-700">材料成分</span>
+                          <span className="font-semibold">{mockDPP.product.materialComposition.map(m => `${m.fiber} ${m.pct}%`).join(', ')}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* 护照底部 */}
+                    <div className="border-t pt-6 mt-6 text-center">
+                      <p className="text-sm text-gray-500 mb-2">本数字护照由区块链技术保障，不可篡改</p>
+                      <p className="text-xs text-gray-400">This digital passport is secured by blockchain technology</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+            {activeTab === 'logistics' && (
+              <motion.div
+                key="logistics"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                className="space-y-6"
+              >
+                <div className="bg-white p-8 rounded-2xl border border-blue-50 shadow-sm">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="bg-blue-100 p-3 rounded-xl text-blue-600">
+                      <Truck size={28} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-800">物流追踪 / Logistics Tracking</h3>
+                      <p className="text-sm text-gray-400">运输单号 / Shipment ID: {mockLogistics.shipmentId}</p>
+                    </div>
+                    <div className="ml-auto">
+                      <span className="bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold border border-blue-100">
+                        {mockLogistics.status === 'In Transit' ? '运输中 / IN TRANSIT' : mockLogistics.status}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="relative">
+                    {/* Timeline Line */}
+                    <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-100 ml-[1px]" />
+
+                    <div className="space-y-12 relative">
+                      <TimelineItem 
+                        icon={<Globe size={16} />} 
+                        label="发货地 / Origin" 
+                        value={mockLogistics.origin} 
+                        active
+                      />
+                      <TimelineItem 
+                        icon={<Truck size={16} />} 
+                        label="承运商 / Carrier" 
+                        value={mockLogistics.carrier} 
+                        active
+                      />
+                      <TimelineItem 
+                        icon={<Calendar size={16} />} 
+                        label="预计送达 / Est. Delivery" 
+                        value={mockLogistics.estimatedDelivery} 
+                        active
+                      />
+                      <TimelineItem 
+                        icon={<Home size={16} />} 
+                        label="目的地 / Destination" 
+                        value={mockLogistics.destination} 
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-blue-600 p-6 rounded-2xl text-white">
+                    <p className="text-[10px] uppercase font-bold opacity-60 mb-1">当前位置 / Current Location</p>
+                    <p className="text-lg font-bold">上海分拨中心 (Shanghai Distribution Center)</p>
+                    <p className="text-xs opacity-80 mt-2">2026-03-24 14:00:00</p>
+                  </div>
+                  <div className="bg-white p-6 rounded-2xl border border-blue-50 shadow-sm">
+                    <p className="text-[10px] uppercase font-bold text-gray-400 mb-1">运输方式 / Method</p>
+                    <p className="text-lg font-bold text-gray-800">陆运 (Road Transport)</p>
+                    <p className="text-xs text-blue-400 mt-2">低碳运输已启用 / Low Carbon Enabled</p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
 
           <AnimatePresence>
             {showFullCarbonReport && (
@@ -786,105 +964,6 @@ export default function App() {
               </div>
             )}
           </AnimatePresence>
-
-          {activeTab === 'logistics' && (
-            <motion.div
-              key="logistics"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="space-y-6"
-            >
-              <div className="bg-white p-8 rounded-2xl border border-blue-50 shadow-sm">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="bg-blue-100 p-3 rounded-xl text-blue-600">
-                    <Truck size={28} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-800">物流追踪 / Logistics Tracking</h3>
-                    <p className="text-sm text-gray-400">运输单号 / Shipment ID: {mockLogistics.shipmentId}</p>
-                  </div>
-                  <div className="ml-auto">
-                    <span className="bg-blue-50 text-blue-600 px-4 py-1.5 rounded-full text-xs font-bold border border-blue-100">
-                      {mockLogistics.status === 'In Transit' ? '运输中 / IN TRANSIT' : mockLogistics.status}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="relative">
-                  {/* Timeline Line */}
-                  <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-100 ml-[1px]" />
-
-                  <div className="space-y-12 relative">
-                    <TimelineItem 
-                      icon={<Globe size={16} />} 
-                      label="发货地 / Origin" 
-                      value={mockLogistics.origin} 
-                      active
-                    />
-                    <TimelineItem 
-                      icon={<Truck size={16} />} 
-                      label="承运商 / Carrier" 
-                      value={mockLogistics.carrier} 
-                      active
-                    />
-                    <TimelineItem 
-                      icon={<Calendar size={16} />} 
-                      label="预计送达 / Est. Delivery" 
-                      value={mockLogistics.estimatedDelivery} 
-                      active
-                    />
-                    <TimelineItem 
-                      icon={<Home size={16} />} 
-                      label="目的地 / Destination" 
-                      value={mockLogistics.destination} 
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-blue-600 p-6 rounded-2xl text-white">
-                  <p className="text-[10px] uppercase font-bold opacity-60 mb-1">当前位置 / Current Location</p>
-                  <p className="text-lg font-bold">上海分拨中心 (Shanghai Distribution Center)</p>
-                  <p className="text-xs opacity-80 mt-2">2026-03-24 14:00:00</p>
-                </div>
-                <div className="bg-white p-6 rounded-2xl border border-blue-50 shadow-sm">
-                  <p className="text-[10px] uppercase font-bold text-gray-400 mb-1">运输方式 / Method</p>
-                  <p className="text-lg font-bold text-gray-800">陆运 (Road Transport)</p>
-                  <p className="text-xs text-blue-400 mt-2">低碳运输已启用 / Low Carbon Enabled</p>
-                </div>
-              </div>
-
-              {/* Related Certificates in Logistics Tab */}
-              <div className="bg-white p-8 rounded-2xl border border-blue-50 shadow-sm">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-emerald-100 p-2 rounded-lg text-emerald-600">
-                    <ShieldCheck size={24} />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-800">随货凭证 / Shipment Documents</h3>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {mockCertificates.slice(0, 2).map((cert) => (
-                    <div key={cert.certId} className="p-4 bg-gray-50 rounded-xl border border-gray-100 flex justify-between items-center">
-                      <div>
-                        <p className="text-sm font-bold text-gray-800">{cert.certType.split(' ')[0]} 认证</p>
-                        <p className="text-[10px] text-gray-400">{cert.certId}</p>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <a href={cert.auditReport} target="_blank" rel="noopener noreferrer" className="text-blue-500 text-xs flex items-center gap-1 hover:underline">
-                          查看 <ExternalLink size={12} />
-                        </a>
-                        <button className="text-gray-400 hover:text-blue-500 transition-colors flex items-center gap-1 text-xs">
-                          分享 <Share2 size={12} />
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          )}
 
           {activeTab === 'materials' && (
             <motion.div
@@ -1698,8 +1777,7 @@ export default function App() {
               </div>
             </motion.div>
           )}
-
-          {activeTab !== 'basic' && activeTab !== 'compliance' && activeTab !== 'logistics' && activeTab !== 'materials' && activeTab !== 'carbon' && activeTab !== 'status' && (
+          {activeTab !== 'basic' && activeTab !== 'compliance' && activeTab !== 'logistics' && activeTab !== 'materials' && activeTab !== 'carbon' && activeTab !== 'status' && activeTab !== 'passport' && (
             <motion.div
               key="placeholder"
               initial={{ opacity: 0 }}
@@ -1753,7 +1831,11 @@ function ManufacturerCard({ title, name, country }: { title: string; name: strin
           <span className="text-xs font-bold text-gray-600">{country}</span>
         </div>
         <div className="w-8 h-5 bg-red-600 relative flex items-center justify-center overflow-hidden rounded-sm">
-          <div className="text-[6px] text-yellow-400">★</div>
+          <div className="absolute text-[10px] text-yellow-400" style={{ left: '2px', top: '1px' }}>★</div>
+          <div className="absolute text-[3px] text-yellow-400" style={{ left: '6px', top: '0px' }}>★</div>
+          <div className="absolute text-[3px] text-yellow-400" style={{ left: '7px', top: '2px' }}>★</div>
+          <div className="absolute text-[3px] text-yellow-400" style={{ left: '7px', top: '4px' }}>★</div>
+          <div className="absolute text-[3px] text-yellow-400" style={{ left: '6px', top: '6px' }}>★</div>
         </div>
       </div>
     </div>

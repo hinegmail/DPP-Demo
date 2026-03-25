@@ -25,7 +25,7 @@ export const mockCarbonData: CarbonData[] = [
     unit: 'kg CO2e',
     details: [
       { 
-        name: '有机棉种植 / Cotton Farming', 
+        name: '桑蚕丝种植 / Silkworm Farming', 
         value: 0.8,
         dataPoints: [
           { label: '灌溉能耗 / Irrigation Energy', value: '120 kWh' },
@@ -196,7 +196,7 @@ export const mockDPP: DPPInstance = {
   passportId: 'AAAA01010124012612345601',
   version: 'V1.2.0',
   issueDate: '2026-03-18',
-  issuer: 'EcoMode 环保时尚服饰集团',
+  issuer: '在宥文化创意集团有限公司',
   dppId: 'AAAA01010124012612345601',
   blockchainRecord: '0xe8205b280b00b08be45822b30ec8a759bb49a6576088fb6c3bae9df3e4fba77d9f',
   digitalLink: 'https://dpp.com/api/06901002233/401',
@@ -214,7 +214,7 @@ export const mockDPP: DPPInstance = {
       { name: '闲鱼 (Xianyu)', url: '#' },
       { name: '多抓鱼 (Deja Vu)', url: '#' }
     ],
-    takeBackProgram: 'EcoMode 门店回收计划 - 可换取 50 积分 / EcoMode Store Take-back (50 pts)'
+    takeBackProgram: '在宥门店回收计划 - 可换取 50 积分 / 在宥 Store Take-back (50 pts)'
   },
   product: {
     id: 'PM-001',
@@ -224,9 +224,9 @@ export const mockDPP: DPPInstance = {
     blockchainHash: '0xabc123...',
     productId: 'PRD-2026-TEE',
     sku: 'TEE-WHT-ORG-M',
-    productName: '可持续有机纯棉经典T恤',
-    brandName: 'EcoMode 环保时尚服饰集团',
-    materialComposition: [{ fiber: '有机棉', pct: 100 }],
+    productName: '可持续桑蚕丝经典丝巾',
+    brandName: '在宥文化创意集团有限公司',
+    materialComposition: [{ fiber: '桑蚕丝', pct: 100 }],
     packaging: '再生纸盒',
     gb18401Category: 'B',
     careLabelSymbols: ['wash_40', 'no_bleach', 'tumble_dry_low'],
@@ -245,9 +245,9 @@ export const mockDPP: DPPInstance = {
         dataClassification: 'PUBLIC',
         sourceType: 'CERTIFICATE',
         blockchainHash: '0xfo123...',
-        fiberType: '有机棉 (Organic Cotton)',
+        fiberType: '桑蚕丝 (Mulberry Silk)',
         originCountry: '中国 (China)',
-        farmLocation: '新疆某有机棉基地',
+        farmLocation: '江苏某桑蚕丝基地',
         harvestDate: '2025-09-10',
         certificationId: 'GOTS-992-12'
       }
@@ -260,10 +260,10 @@ export const mockDPP: DPPInstance = {
         sourceType: 'ENTERPRISE',
         blockchainHash: '0xmb123...',
         batchId: 'BAT-2025-COT-01',
-        materialName: '原棉 (Raw Cotton)',
+        materialName: '桑蚕丝 (Mulberry Silk)',
         weight: 5000,
         unit: 'kg',
-        supplierName: '天山棉业有限公司',
+        supplierName: '苏州桑蚕丝有限公司',
         arrivalDate: '2025-09-28'
       }
     ],
