@@ -1,0 +1,346 @@
+{
+  "description": "DPP 系统高保真全量全字段 Demo 数据集 (在宥丝巾专项版)",
+  "version": "1.1 (Full-Schema)",
+  "generated_at": "2026-03-25T15:45:00Z",
+  "system_auth": {
+    "sys_enterprise": [
+      {
+        "id": 1,
+        "enterprise_code": "91310000PLATFORM",
+        "enterprise_name": "DPP 监管管理平台 (运营方)",
+        "enterprise_type": "PLATFORM",
+        "contact_person": "管理员-老陈",
+        "contact_phone": "021-88889999",
+        "is_verified": true,
+        "created_at": "2026-01-01 09:00:00",
+        "updated_at": "2026-01-01 09:00:00",
+        "is_deleted": false
+      },
+      {
+        "id": 2,
+        "enterprise_code": "91310000BRAND001",
+        "enterprise_name": "在宥文化创意集团有限公司",
+        "enterprise_type": "BRAND",
+        "contact_person": "品牌经理-小李",
+        "contact_phone": "13800138002",
+        "is_verified": true,
+        "created_at": "2026-02-15 10:30:00",
+        "updated_at": "2026-03-24 14:20:00",
+        "is_deleted": false
+      },
+      {
+        "id": 3,
+        "enterprise_code": "91310000TIER1001",
+        "enterprise_name": "苏南精工成衣代工厂",
+        "enterprise_type": "TIER1_GARMENT",
+        "contact_person": "张工",
+        "contact_phone": "13911112222",
+        "is_verified": true,
+        "created_at": "2026-03-01 08:00:00",
+        "updated_at": "2026-03-01 08:00:00",
+        "is_deleted": false
+      },
+      {
+        "id": 4,
+        "enterprise_code": "91310000TIER2001",
+        "enterprise_name": "苏州恒嘉高新织造有限公司",
+        "enterprise_type": "TIER2_FABRIC",
+        "contact_person": "王大经理",
+        "contact_phone": "13766667777",
+        "is_verified": true,
+        "created_at": "2026-03-05 11:00:00",
+        "updated_at": "2026-03-05 11:00:00",
+        "is_deleted": false
+      },
+      {
+        "id": 5,
+        "enterprise_code": "91310000TIER3001",
+        "enterprise_name": "绿水青山印染实业",
+        "enterprise_type": "TIER3_DYEING",
+        "contact_person": "周厂长",
+        "contact_phone": "13500008888",
+        "is_verified": true,
+        "created_at": "2026-03-10 14:00:00",
+        "updated_at": "2026-03-10 14:00:00",
+        "is_deleted": false
+      }
+    ],
+    "sys_user": [
+      {
+        "id": 1,
+        "tenant_id": 1,
+        "username": "admin",
+        "password_hash": "pbkdf2:sha256:hash_admin_mock",
+        "real_name": "系统管理员",
+        "last_login_time": "2026-03-25 09:00:00",
+        "status": 1,
+        "created_at": "2026-01-01 09:00:00",
+        "updated_at": "2026-01-01 09:00:00",
+        "is_deleted": false
+      },
+      {
+        "id": 2,
+        "tenant_id": 2,
+        "username": "brand_manager",
+        "password_hash": "pbkdf2:sha256:hash_brand_mock",
+        "real_name": "品牌经理-小李",
+        "last_login_time": "2026-03-25 10:15:00",
+        "status": 1,
+        "created_at": "2026-02-15 10:30:00",
+        "updated_at": "2026-02-15 10:30:00",
+        "is_deleted": false
+      },
+      {
+        "id": 3,
+        "tenant_id": 3,
+        "username": "factory_master",
+        "password_hash": "pbkdf2:sha256:hash_factory_mock",
+        "real_name": "成衣厂张工",
+        "last_login_time": "2026-03-24 16:50:00",
+        "status": 1,
+        "created_at": "2026-03-01 08:30:00",
+        "updated_at": "2026-03-01 08:30:00",
+        "is_deleted": false
+      }
+    ]
+  },
+  "audit_log": [
+    {
+      "id": 1,
+      "tenant_id": 2,
+      "user_id": 2,
+      "operation_type": "PUBLISH_DPP",
+      "target_table": "dpp_instance",
+      "target_id": 1,
+      "data_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "blockchain_tx": "0xf87788aabbccddeeff0011223344556677889900",
+      "created_at": "2026-03-25 11:00:00"
+    }
+  ],
+  "core_business": {
+    "product_master": [
+      {
+        "id": 1,
+        "tenant_id": 2,
+        "product_id": "PRD-2026-TEE-001",
+        "sku": "TEE-WHT-ORG-M",
+        "product_name": "桑蚕丝 经典丝巾",
+        "brand_name": "在宥文化创意集团有限公司",
+        "material_composition": [{"fiber": "桑蚕丝", "pct": 100}],
+        "packaging": "FSC认证环保礼盒",
+        "gb18401_category": "B",
+        "care_label_symbols": ["wash_40", "no_bleach", "iron_low"],
+        "data_classification": "PUBLIC",
+        "source_type": "ENTERPRISE",
+        "created_by": 2,
+        "updated_by": 2,
+        "created_at": "2026-03-10 15:00:00",
+        "updated_at": "2026-03-10 15:00:00",
+        "is_deleted": false
+      }
+    ],
+    "garment_batch_node": [
+      {
+        "id": 1,
+        "tenant_id": 3,
+        "garment_batch_id": "BATCH-202603-G01",
+        "product_master_id": 1,
+        "manufacturer_name": "苏南精工成衣代工厂",
+        "manufacturing_date": "2026-03-15",
+        "renewable_energy_ratio": 45.5,
+        "data_classification": "RESTRICTED",
+        "source_type": "ENTERPRISE",
+        "created_by": 3,
+        "updated_by": 3,
+        "created_at": "2026-03-16 08:30:00",
+        "updated_at": "2026-03-16 08:30:00",
+        "is_deleted": false
+      }
+    ],
+    "fabric_batch_node": [
+      {
+        "id": 1,
+        "tenant_id": 4,
+        "fabric_batch_id": "FAB-2026-001",
+        "garment_batch_node_id": 1,
+        "fabric_supplier": "苏州恒嘉高新织造有限公司",
+        "fiber_percentage": [{"fiber": "桑蚕丝", "pct": 100}],
+        "renewable_energy_ratio": 60.0,
+        "data_classification": "RESTRICTED",
+        "source_type": "ENTERPRISE",
+        "created_by": 4,
+        "updated_by": 4,
+        "created_at": "2026-03-12 10:00:00",
+        "updated_at": "2026-03-12 10:00:00",
+        "is_deleted": false
+      }
+    ],
+    "dyeing_batch_node": [
+      {
+        "id": 1,
+        "tenant_id": 5,
+        "dyeing_batch_id": "DYE-2026-088",
+        "fabric_batch_node_id": 1,
+        "dyeing_factory": "绿水青山印染实业",
+        "chemical_list": [
+          {"name": "环保草木染料", "cas_no": "NAT-DYE-99", "usage_kg": 25.5},
+          {"name": "固色剂-G", "cas_no": "FIX-9901", "usage_kg": 12.0}
+        ],
+        "reach_compliance": true,
+        "zdhc_compliance": true,
+        "renewable_energy_ratio": 85.0,
+        "data_classification": "CONFIDENTIAL",
+        "source_type": "CERTIFICATE",
+        "created_by": 5,
+        "updated_by": 5,
+        "created_at": "2026-03-13 16:30:00",
+        "updated_at": "2026-03-13 16:30:00",
+        "is_deleted": false
+      }
+    ],
+    "yarn_batch_node": [
+      {
+        "id": 1,
+        "tenant_id": 4,
+        "yarn_batch_id": "YARN-SH-002",
+        "fabric_batch_node_id": 1,
+        "yarn_supplier": "苏州本地蚕丝加工厂",
+        "renewable_energy_ratio": 30.0,
+        "data_classification": "RESTRICTED",
+        "source_type": "ENTERPRISE",
+        "created_by": 4,
+        "updated_by": 4,
+        "created_at": "2026-03-11 09:00:00",
+        "updated_at": "2026-03-11 09:00:00",
+        "is_deleted": false
+      }
+    ],
+    "fiber_batch_node": [
+      {
+        "id": 1,
+        "tenant_id": 4,
+        "fiber_batch_id": "FIBER-SILK-2026",
+        "yarn_batch_node_id": 1,
+        "fiber_supplier": "吴江蚕桑合作社",
+        "data_classification": "PUBLIC",
+        "source_type": "CERTIFICATE",
+        "created_by": 4,
+        "updated_by": 4,
+        "created_at": "2026-03-08 11:45:00",
+        "updated_at": "2026-03-08 11:45:00",
+        "is_deleted": false
+      }
+    ],
+    "accessories_batch_node": [
+      {
+        "id": 1,
+        "tenant_id": 3,
+        "accessory_batch_id": "ACC-LBL-01",
+        "garment_batch_node_id": 1,
+        "accessory_supplier": "苏南配件印务司",
+        "data_classification": "PUBLIC",
+        "source_type": "ENTERPRISE",
+        "created_by": 3,
+        "updated_by": 3,
+        "created_at": "2026-03-14 10:00:00",
+        "updated_at": "2026-03-14 10:00:00",
+        "is_deleted": false
+      }
+    ],
+    "logistics_node": [
+      {
+        "id": 1,
+        "tenant_id": 2,
+        "shipment_id": "LOGI-SF-998811",
+        "garment_batch_node_id": 1,
+        "carrier": "顺丰供应链特运",
+        "data_classification": "RESTRICTED",
+        "source_type": "MODEL_EST",
+        "created_by": 2,
+        "updated_by": 2,
+        "created_at": "2026-03-24 09:00:00",
+        "updated_at": "2026-03-24 09:00:00",
+        "is_deleted": false
+      }
+    ],
+    "dpp_instance": [
+      {
+        "id": 1,
+        "tenant_id": 2,
+        "dpp_id": "urn:epc:id:sgtin:0614141.112345.401",
+        "product_master_id": 1,
+        "garment_batch_node_id": 1,
+        "digital_link": "https://dpp.zaiyou.com/passport/0614141112345401",
+        "blockchain_record": "BCHAIN-TX-9981-AD6D",
+        "data_classification": "PUBLIC",
+        "source_type": "ENTERPRISE",
+        "created_by": 2,
+        "updated_by": 2,
+        "created_at": "2026-03-25 10:30:00",
+        "updated_at": "2026-03-25 10:30:00",
+        "is_deleted": false
+      }
+    ],
+    "compliance_cert_asset": [
+      {
+        "id": 1,
+        "tenant_id": 2,
+        "cert_id": "CERT-GOTS-2026-009",
+        "dpp_instance_id": 1,
+        "cert_type": "GOTS",
+        "audit_report": "https://oss.zaiyou.com/reports/eco-gots-2026.pdf",
+        "blockchain_hash": "sha256:7f83b1657ff1...mock_hash",
+        "data_classification": "PUBLIC",
+        "source_type": "CERTIFICATE",
+        "created_by": 2,
+        "updated_by": 2,
+        "created_at": "2026-03-25 10:45:00",
+        "updated_at": "2026-03-25 10:45:00",
+        "is_deleted": false
+      }
+    ]
+  },
+  "deferred_lifecycle": {
+    "distribution_node": [
+      {
+        "id": 1,
+        "tenant_id": 2,
+        "distribution_id": "DIST-SH-01",
+        "dpp_instance_id": 1,
+        "channel_type": "门店",
+        "retailer_name": "在宥 上海新天地旗舰店",
+        "sale_date": "2026-04-01",
+        "created_by": 2,
+        "created_at": "2026-04-01 10:00:00"
+      }
+    ],
+    "usage_record": [
+      {
+        "id": 1,
+        "tenant_id": 0,
+        "usage_record_id": "USE-USR-882",
+        "dpp_instance_id": 1,
+        "owner_type": "原始买家",
+        "activation_date": "2026-04-05",
+        "wash_count": 3,
+        "condition_grade": "A",
+        "created_by": 1,
+        "created_at": "2026-04-05 14:00:00"
+      }
+    ],
+    "repair_work_order": [],
+    "recycling_record": [],
+    "sorting_guide": [
+      {
+        "id": 1,
+        "tenant_id": 2,
+        "sorting_guide_id": "GUIDE-TEE-01",
+        "product_master_id": 1,
+        "bin_type": "纺织品专用回收箱",
+        "instructions": ["请剪掉洗水唛", "确保丝巾干燥", "存放于丝绸收纳袋中"],
+        "created_by": 2,
+        "created_at": "2026-03-25 10:00:00"
+      }
+    ]
+  }
+}

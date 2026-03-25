@@ -1,0 +1,819 @@
+{
+    "sys_enterprise": [
+        {
+            "id": 1,
+            "enterprise_code": "91310000PLATFORM",
+            "enterprise_name": "DPP 监管管理平台 (运营方)",
+            "enterprise_type": "PLATFORM",
+            "contact_person": "平台管理员",
+            "contact_phone": "400-888-9999",
+            "is_verified": true,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-25T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "enterprise_code": "91310000BRAND001",
+            "enterprise_name": "EcoMode 环保时尚服饰集团",
+            "enterprise_type": "BRAND",
+            "contact_person": "李总",
+            "contact_phone": "13800138000",
+            "is_verified": true,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-25T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 3,
+            "enterprise_code": "91310000TIER1001",
+            "enterprise_name": "苏南精工成衣代工厂",
+            "enterprise_type": "TIER1_GARMENT",
+            "contact_person": "张工",
+            "contact_phone": "13912345678",
+            "is_verified": true,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-25T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 4,
+            "enterprise_code": "91310000BRAND002",
+            "enterprise_name": "在宥文化创意集团有限公司",
+            "enterprise_type": "BRAND",
+            "contact_person": "王总",
+            "contact_phone": "13987654321",
+            "is_verified": true,
+            "created_at": "2026-04-01T09:00:00",
+            "updated_at": "2026-04-10T14:30:00",
+            "is_deleted": false
+        }
+    ],
+    "sys_user": [
+        {
+            "id": 1,
+            "tenant_id": 1,
+            "username": "admin",
+            "password_hash": "pbkdf2:sha256:hash_admin",
+            "real_name": "系统管理员",
+            "last_login_time": "2026-03-25T01:58:00",
+            "status": 1,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-25T01:58:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 2,
+            "username": "brand_user",
+            "password_hash": "pbkdf2:sha256:hash_brand",
+            "real_name": "品牌经理-小李",
+            "last_login_time": "2026-03-20T10:00:00",
+            "status": 1,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-20T10:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 3,
+            "tenant_id": 3,
+            "username": "factory_user",
+            "password_hash": "pbkdf2:sha256:hash_factory",
+            "real_name": "成衣厂生产主管-张工",
+            "last_login_time": "2026-03-15T09:00:00",
+            "status": 1,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-15T09:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 4,
+            "tenant_id": 4,
+            "username": "zaiyou_brand",
+            "password_hash": "pbkdf2:sha256:hash_zaiyou",
+            "real_name": "品牌经理-小王",
+            "last_login_time": "2026-04-10T14:30:00",
+            "status": 1,
+            "created_at": "2026-04-01T09:00:00",
+            "updated_at": "2026-04-10T14:30:00",
+            "is_deleted": false
+        }
+    ],
+    "sys_role": [
+        {
+            "id": 1,
+            "tenant_id": 0,
+            "role_name": "系统管理员",
+            "role_code": "PLATFORM_ADMIN",
+            "description": "平台全局管理员",
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 2,
+            "role_name": "品牌经理",
+            "role_code": "BRAND_MANAGER",
+            "description": "品牌方产品建档与审核",
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 3,
+            "tenant_id": 3,
+            "role_name": "工厂主管",
+            "role_code": "FACTORY_MANAGER",
+            "description": "供应链节点填报",
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 4,
+            "tenant_id": 4,
+            "role_name": "品牌经理",
+            "role_code": "BRAND_MANAGER",
+            "description": "在宥品牌方产品建档与审核",
+            "created_at": "2026-04-01T09:00:00",
+            "updated_at": "2026-04-01T09:00:00",
+            "is_deleted": false
+        }
+    ],
+    "sys_permission": [
+        {
+            "id": 1,
+            "parent_id": 0,
+            "perm_name": "仪表盘",
+            "perm_type": 1,
+            "route_path": "/dashboard",
+            "perm_code": "dashboard:view",
+            "icon": "dashboard",
+            "sort_order": 1,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "parent_id": 0,
+            "perm_name": "产品档案",
+            "perm_type": 2,
+            "route_path": "/product-master",
+            "perm_code": "product:manage",
+            "icon": "product",
+            "sort_order": 2,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 3,
+            "parent_id": 0,
+            "perm_name": "供应链节点",
+            "perm_type": 2,
+            "route_path": "/supply-chain",
+            "perm_code": "node:fill",
+            "icon": "chain",
+            "sort_order": 3,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 4,
+            "parent_id": 0,
+            "perm_name": "数字护照",
+            "perm_type": 2,
+            "route_path": "/dpp-instance",
+            "perm_code": "dpp:publish",
+            "icon": "passport",
+            "sort_order": 4,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 5,
+            "parent_id": 0,
+            "perm_name": "审计日志",
+            "perm_type": 2,
+            "route_path": "/audit-log",
+            "perm_code": "audit:view",
+            "icon": "log",
+            "sort_order": 5,
+            "created_at": "2026-03-01T00:00:00",
+            "updated_at": "2026-03-01T00:00:00",
+            "is_deleted": false
+        }
+    ],
+    "sys_user_role": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "role_id": 1
+        },
+        {
+            "id": 2,
+            "user_id": 2,
+            "role_id": 2
+        },
+        {
+            "id": 3,
+            "user_id": 3,
+            "role_id": 3
+        },
+        {
+            "id": 4,
+            "user_id": 4,
+            "role_id": 4
+        }
+    ],
+    "sys_role_permission": [
+        {
+            "id": 1,
+            "role_id": 1,
+            "permission_id": 1
+        },
+        {
+            "id": 2,
+            "role_id": 1,
+            "permission_id": 2
+        },
+        {
+            "id": 3,
+            "role_id": 1,
+            "permission_id": 3
+        },
+        {
+            "id": 4,
+            "role_id": 1,
+            "permission_id": 4
+        },
+        {
+            "id": 5,
+            "role_id": 1,
+            "permission_id": 5
+        },
+        {
+            "id": 6,
+            "role_id": 2,
+            "permission_id": 1
+        },
+        {
+            "id": 7,
+            "role_id": 2,
+            "permission_id": 2
+        },
+        {
+            "id": 8,
+            "role_id": 2,
+            "permission_id": 4
+        },
+        {
+            "id": 9,
+            "role_id": 3,
+            "permission_id": 1
+        },
+        {
+            "id": 10,
+            "role_id": 3,
+            "permission_id": 3
+        },
+        {
+            "id": 11,
+            "role_id": 4,
+            "permission_id": 1
+        },
+        {
+            "id": 12,
+            "role_id": 4,
+            "permission_id": 2
+        },
+        {
+            "id": 13,
+            "role_id": 4,
+            "permission_id": 4
+        }
+    ],
+    "sys_audit_log": [
+        {
+            "id": 1,
+            "tenant_id": 2,
+            "user_id": 2,
+            "operation_type": "PUBLISH_DPP",
+            "target_table": "dpp_instance",
+            "target_id": 1,
+            "data_hash": "sha256_mock_hash_value",
+            "blockchain_tx": "0x7788aabbccdd",
+            "created_at": "2026-03-20T10:00:00"
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "user_id": 4,
+            "operation_type": "CREATE_PRODUCT",
+            "target_table": "product_master",
+            "target_id": 2,
+            "data_hash": "sha256_jinxiang_product_001",
+            "blockchain_tx": null,
+            "created_at": "2026-04-05T10:00:00"
+        },
+        {
+            "id": 3,
+            "tenant_id": 4,
+            "user_id": 4,
+            "operation_type": "SUBMIT_NODE",
+            "target_table": "garment_batch_node",
+            "target_id": 2,
+            "data_hash": "sha256_jinxiang_garment_002",
+            "blockchain_tx": null,
+            "created_at": "2026-04-08T14:00:00"
+        },
+        {
+            "id": 4,
+            "tenant_id": 4,
+            "user_id": 4,
+            "operation_type": "PUBLISH_DPP",
+            "target_table": "dpp_instance",
+            "target_id": 2,
+            "data_hash": "sha256_jinxiang_dpp_003",
+            "blockchain_tx": "0xabcdef1234567890",
+            "created_at": "2026-04-10T14:30:00"
+        }
+    ],
+    "product_master": [
+        {
+            "id": 1,
+            "tenant_id": 2,
+            "product_id": "PRD-2026-TEE",
+            "sku": "TEE-WHT-ORG-M",
+            "product_name": "可持续有机纯棉经典丝巾",
+            "brand_name": "EcoMode",
+            "material_composition": [
+                {
+                    "fiber": "棉",
+                    "pct": 100
+                }
+            ],
+            "packaging": "环保纸盒",
+            "gb18401_category": "B",
+            "care_label_symbols": [
+                "wash_40",
+                "no_bleach",
+                "tumble_dry_low"
+            ],
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 2,
+            "updated_by": 2,
+            "created_at": "2026-03-10T00:00:00",
+            "updated_at": "2026-03-20T10:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "product_id": "PRD-2026-JINXIANG",
+            "sku": "SILK-80X80-NAT",
+            "product_name": "槿向 80*80 天然桑蚕丝方巾",
+            "brand_name": "在宥",
+            "material_composition": [
+                {
+                    "fiber": "天然桑蚕丝",
+                    "pct": 100
+                }
+            ],
+            "packaging": "精致礼盒",
+            "gb18401_category": "B",
+            "care_label_symbols": [
+                "hand_wash_cold",
+                "no_bleach",
+                "dry_flat",
+                "no_tumble_dry"
+            ],
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-05T10:00:00",
+            "updated_at": "2026-04-10T14:30:00",
+            "is_deleted": false
+        }
+    ],
+    "garment_batch_node": [
+        {
+            "id": 1,
+            "tenant_id": 3,
+            "garment_batch_id": "GTIN-6901002233",
+            "product_master_id": 1,
+            "manufacturer_name": "苏南精工成衣代工厂",
+            "manufacturing_date": "2026-03-15",
+            "renewable_energy_ratio": 65.0,
+            "data_classification": "RESTRICTED",
+            "source_type": "ENTERPRISE",
+            "created_by": 3,
+            "updated_by": 3,
+            "created_at": "2026-03-15T09:00:00",
+            "updated_at": "2026-03-15T09:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "garment_batch_id": "GTIN-6901005566",
+            "product_master_id": 2,
+            "manufacturer_name": "在宥丝绸工坊",
+            "manufacturing_date": "2026-04-10",
+            "renewable_energy_ratio": 92.5,
+            "data_classification": "RESTRICTED",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-08T14:00:00",
+            "updated_at": "2026-04-10T14:30:00",
+            "is_deleted": false
+        }
+    ],
+    "fabric_batch_node": [
+        {
+            "id": 1,
+            "tenant_id": 3,
+            "fabric_batch_id": "FAB-20260315-001",
+            "garment_batch_node_id": 1,
+            "fabric_supplier": "苏南面料有限公司",
+            "fiber_percentage": [
+                {
+                    "fiber": "棉",
+                    "pct": 100
+                }
+            ],
+            "renewable_energy_ratio": 70.0,
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 3,
+            "updated_by": 3,
+            "created_at": "2026-03-15T10:00:00",
+            "updated_at": "2026-03-15T10:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "fabric_batch_id": "FAB-20260408-001",
+            "garment_batch_node_id": 2,
+            "fabric_supplier": "在宥丝绸面料厂",
+            "fiber_percentage": [
+                {
+                    "fiber": "天然桑蚕丝",
+                    "pct": 100
+                }
+            ],
+            "renewable_energy_ratio": 95.0,
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-08T14:30:00",
+            "updated_at": "2026-04-08T14:30:00",
+            "is_deleted": false
+        }
+    ],
+    "dyeing_batch_node": [
+        {
+            "id": 1,
+            "tenant_id": 3,
+            "dyeing_batch_id": "DYE-20260315-001",
+            "fabric_batch_node_id": 1,
+            "dyeing_factory": "苏南印染厂",
+            "chemical_list": [
+                {
+                    "name": "环保活性染料",
+                    "cas_no": "N/A",
+                    "usage_kg": 12.5
+                }
+            ],
+            "reach_compliance": true,
+            "zdhc_compliance": true,
+            "renewable_energy_ratio": 68.0,
+            "data_classification": "RESTRICTED",
+            "source_type": "ENTERPRISE",
+            "created_by": 3,
+            "updated_by": 3,
+            "created_at": "2026-03-15T11:00:00",
+            "updated_at": "2026-03-15T11:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "dyeing_batch_id": "DYE-20260408-001",
+            "fabric_batch_node_id": 2,
+            "dyeing_factory": "在宥环保印染中心",
+            "chemical_list": [
+                {
+                    "name": "天然植物染料",
+                    "cas_no": "N/A",
+                    "usage_kg": 8.2
+                }
+            ],
+            "reach_compliance": true,
+            "zdhc_compliance": true,
+            "renewable_energy_ratio": 98.0,
+            "data_classification": "RESTRICTED",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-08T15:00:00",
+            "updated_at": "2026-04-08T15:00:00",
+            "is_deleted": false
+        }
+    ],
+    "yarn_batch_node": [
+        {
+            "id": 1,
+            "tenant_id": 3,
+            "yarn_batch_id": "YARN-20260315-001",
+            "fabric_batch_node_id": 1,
+            "yarn_supplier": "苏南纺纱厂",
+            "renewable_energy_ratio": 75.0,
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 3,
+            "updated_by": 3,
+            "created_at": "2026-03-15T10:30:00",
+            "updated_at": "2026-03-15T10:30:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "yarn_batch_id": "YARN-20260408-001",
+            "fabric_batch_node_id": 2,
+            "yarn_supplier": "在宥纺纱车间",
+            "renewable_energy_ratio": 90.0,
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-08T14:45:00",
+            "updated_at": "2026-04-08T14:45:00",
+            "is_deleted": false
+        }
+    ],
+    "fiber_batch_node": [
+        {
+            "id": 1,
+            "tenant_id": 3,
+            "fiber_batch_id": "FIBER-20260315-001",
+            "yarn_batch_node_id": 1,
+            "fiber_supplier": "新疆有机棉基地",
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 3,
+            "updated_by": 3,
+            "created_at": "2026-03-15T10:45:00",
+            "updated_at": "2026-03-15T10:45:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "fiber_batch_id": "FIBER-20260408-001",
+            "yarn_batch_node_id": 2,
+            "fiber_supplier": "浙江桑蚕丝原料基地",
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-08T15:15:00",
+            "updated_at": "2026-04-08T15:15:00",
+            "is_deleted": false
+        }
+    ],
+    "accessories_batch_node": [
+        {
+            "id": 1,
+            "tenant_id": 3,
+            "accessory_batch_id": "ACC-20260315-001",
+            "garment_batch_node_id": 1,
+            "accessory_supplier": "苏南辅料厂",
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 3,
+            "updated_by": 3,
+            "created_at": "2026-03-15T11:30:00",
+            "updated_at": "2026-03-15T11:30:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "accessory_batch_id": "ACC-20260410-001",
+            "garment_batch_node_id": 2,
+            "accessory_supplier": "在宥礼盒辅料供应商",
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-10T09:00:00",
+            "updated_at": "2026-04-10T09:00:00",
+            "is_deleted": false
+        }
+    ],
+    "logistics_node": [
+        {
+            "id": 1,
+            "tenant_id": 3,
+            "shipment_id": "LOG-20260320-001",
+            "garment_batch_node_id": 1,
+            "carrier": "顺丰物流",
+            "data_classification": "RESTRICTED",
+            "source_type": "ENTERPRISE",
+            "created_by": 3,
+            "updated_by": 3,
+            "created_at": "2026-03-20T08:00:00",
+            "updated_at": "2026-03-20T08:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "shipment_id": "LOG-20260412-001",
+            "garment_batch_node_id": 2,
+            "carrier": "中通快递",
+            "data_classification": "RESTRICTED",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-12T10:00:00",
+            "updated_at": "2026-04-12T10:00:00",
+            "is_deleted": false
+        }
+    ],
+    "dpp_instance": [
+        {
+            "id": 1,
+            "tenant_id": 2,
+            "dpp_id": "urn:epc:id:sgtin:0614141.112345.401",
+            "product_master_id": 1,
+            "garment_batch_node_id": 1,
+            "digital_link": "https://dpp.com/api/06901002233/401",
+            "blockchain_record": "0x7788aabbccdd",
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 2,
+            "updated_by": 2,
+            "created_at": "2026-03-20T10:00:00",
+            "updated_at": "2026-03-20T10:00:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "dpp_id": "urn:epc:id:sgtin:0614141.556677.801",
+            "product_master_id": 2,
+            "garment_batch_node_id": 2,
+            "digital_link": "https://dpp.com/api/06901005566/801",
+            "blockchain_record": "0xabcdef1234567890",
+            "data_classification": "PUBLIC",
+            "source_type": "ENTERPRISE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-10T14:30:00",
+            "updated_at": "2026-04-10T14:30:00",
+            "is_deleted": false
+        }
+    ],
+    "compliance_cert_asset": [
+        {
+            "id": 1,
+            "tenant_id": 2,
+            "cert_id": "CERT-OEKO-20260320-001",
+            "dpp_instance_id": 1,
+            "cert_type": "OEKO-TEX",
+            "audit_report": "https://oss.dpp.com/cert/ecmode_oeko.pdf",
+            "blockchain_hash": "sha256_ecmode_cert_001",
+            "data_classification": "PUBLIC",
+            "source_type": "CERTIFICATE",
+            "created_by": 2,
+            "updated_by": 2,
+            "created_at": "2026-03-20T10:30:00",
+            "updated_at": "2026-03-20T10:30:00",
+            "is_deleted": false
+        },
+        {
+            "id": 2,
+            "tenant_id": 4,
+            "cert_id": "CERT-GOTS-20260410-001",
+            "dpp_instance_id": 2,
+            "cert_type": "GOTS",
+            "audit_report": "https://oss.dpp.com/cert/zaiyou_gots.pdf",
+            "blockchain_hash": "sha256_zaiyou_gots_002",
+            "data_classification": "PUBLIC",
+            "source_type": "CERTIFICATE",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-10T15:00:00",
+            "updated_at": "2026-04-10T15:00:00",
+            "is_deleted": false
+        }
+    ],
+    "distribution_node": [
+        {
+            "id": 1,
+            "tenant_id": 4,
+            "distribution_id": "DIST-20260415-001",
+            "dpp_instance_id": 2,
+            "channel_type": "直营",
+            "retailer_name": "在宥旗舰店",
+            "ship_to_country": "CN",
+            "sale_date": "2026-04-15",
+            "sale_price": 899.00,
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-15T10:00:00",
+            "updated_at": "2026-04-15T10:00:00",
+            "is_deleted": false
+        }
+    ],
+    "usage_record": [
+        {
+            "id": 1,
+            "tenant_id": 4,
+            "usage_record_id": "USE-20260420-001",
+            "dpp_instance_id": 2,
+            "owner_type": "原始买家",
+            "activation_date": "2026-04-20",
+            "wash_count": 3,
+            "condition_grade": "A",
+            "ownership_transfer_count": 0,
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-20T08:00:00",
+            "updated_at": "2026-04-20T08:00:00",
+            "is_deleted": false
+        }
+    ],
+    "repair_work_order": [
+        {
+            "id": 1,
+            "tenant_id": 4,
+            "work_order_id": "REP-20260501-001",
+            "dpp_instance_id": 2,
+            "repair_type": "专业干洗",
+            "repair_provider": "在宥丝绸护理中心",
+            "parts_replaced": [],
+            "repair_date": "2026-05-01",
+            "repair_cost": 120.00,
+            "life_extension_months": 12,
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-05-01T00:00:00",
+            "updated_at": "2026-05-01T00:00:00",
+            "is_deleted": false
+        }
+    ],
+    "recycling_record": [
+        {
+            "id": 1,
+            "tenant_id": 4,
+            "recycling_record_id": "REC-20261201-001",
+            "dpp_instance_id": 2,
+            "collection_channel": "门店回收",
+            "disassembly_method": "手工",
+            "material_recovery_rate": 95.0,
+            "recycled_output_type": "再生丝绸纤维",
+            "recycling_date": "2026-12-01",
+            "carbon_saving": 12.8,
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-12-01T00:00:00",
+            "updated_at": "2026-12-01T00:00:00",
+            "is_deleted": false
+        }
+    ],
+    "sorting_guide": [
+        {
+            "id": 1,
+            "tenant_id": 4,
+            "sorting_guide_id": "SORT-2026-JINXIANG-001",
+            "product_master_id": 2,
+            "bin_type": "纺织品回收箱",
+            "instructions": [
+                "取出金属配件",
+                "整件平铺放入回收箱"
+            ],
+            "prohibited_actions": [
+                "不可混入普通垃圾"
+            ],
+            "local_regulation": "GB/T 40226-2021 纺织品回收规范",
+            "created_by": 4,
+            "updated_by": 4,
+            "created_at": "2026-04-05T10:00:00",
+            "updated_at": "2026-04-05T10:00:00",
+            "is_deleted": false
+        }
+    ]
+}

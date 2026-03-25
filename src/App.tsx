@@ -37,7 +37,7 @@ import {
   X
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { 
   BarChart, 
   Bar, 
@@ -288,6 +288,35 @@ const TABS = [
 export default function App() {
   const [activeTab, setActiveTab] = useState('basic');
   const [selectedCert, setSelectedCert] = useState<any>(null);
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSaveToBackend = async () => {
+    setIsSaving(true);
+    try {
+      const response = await fetch('/api/data', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          metadata: {
+            updatedAt: new Date().toISOString(),
+            description: "DPP 实时快照数据"
+          },
+          mockDPP,
+          mockCertificates,
+          mockLogistics,
+          mockCarbonData,
+          mockCarbonSavings
+        })
+      });
+      const result = await response.json();
+      alert(`保存成功: ${result.message}\n已写入 public/demo.json`);
+    } catch (error) {
+      console.error('Save failed:', error);
+      alert('保存失败，请确认后端服务已启动 (npm run server)');
+    } finally {
+      setIsSaving(false);
+    }
+  };
   const [filterText, setFilterText] = useState('');
   const [selectedSupplier, setSelectedSupplier] = useState('ALL');
   const [selectedType, setSelectedType] = useState('ALL');
@@ -422,11 +451,27 @@ export default function App() {
               <p className="uppercase opacity-60">区块哈希 / Block Hash:</p>
               <p className="font-mono text-blue-600 truncate w-48 text-xs">{mockDPP.blockchainRecord}</p>
             </div>
-            <div className="flex flex-col items-center">
-              <div className="bg-gray-100 p-1 rounded">
-                <img src="/qc.png" alt="QR Code" width={40} height={40} className="text-gray-800" />
+            <div className="flex flex-col items-center gap-2">
+              <button 
+                onClick={handleSaveToBackend}
+                disabled={isSaving}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all ${
+                  isSaving 
+                    ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed' 
+                    : 'bg-blue-50 text-blue-600 border-blue-100 hover:bg-blue-600 hover:text-white shadow-sm hover:shadow-md'
+                }`}
+              >
+                <Database size={16} className={isSaving ? 'animate-pulse' : ''} />
+                <span className="font-bold text-[10px] uppercase tracking-wider">
+                  {isSaving ? '正在保存...' : '保存至 JSON / Save to JSON'}
+                </span>
+              </button>
+              <div className="flex flex-col items-center">
+                <div className="bg-gray-100 p-1 rounded">
+                  <img src="/qc.png" alt="QR Code" width={40} height={40} className="text-gray-800" />
+                </div>
+                <p className="mt-1 scale-75 whitespace-nowrap">扫描二维码体验 / Scan</p>
               </div>
-              <p className="mt-1 scale-75 whitespace-nowrap">扫描二维码体验 / Scan</p>
             </div>
           </div>
         </div>
