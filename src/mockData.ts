@@ -4,10 +4,10 @@ export interface CarbonData {
   stage: string;
   emissions: number;
   unit: string;
-  details?: { 
-    name: string; 
-    value: number; 
-    dataPoints?: { label: string; value: string }[] 
+  details?: {
+    name: string;
+    value: number;
+    dataPoints?: { label: string; value: string }[]
   }[];
 }
 
@@ -19,13 +19,13 @@ export interface CarbonSaving {
 }
 
 export const mockCarbonData: CarbonData[] = [
-  { 
-    stage: '原材料 / Raw Material', 
-    emissions: 1.2, 
+  {
+    stage: '原材料 / Raw Material',
+    emissions: 1.2,
     unit: 'kg CO2e',
     details: [
-      { 
-        name: '桑蚕丝种植 / Silkworm Farming', 
+      {
+        name: '桑蚕丝种植 / Silkworm Farming',
         value: 0.8,
         dataPoints: [
           { label: '灌溉能耗 / Irrigation Energy', value: '120 kWh' },
@@ -33,8 +33,8 @@ export const mockCarbonData: CarbonData[] = [
           { label: '土地利用 / Land Use', value: '0.5 ha' }
         ]
       },
-      { 
-        name: '纤维加工 / Fiber Processing', 
+      {
+        name: '纤维加工 / Fiber Processing',
         value: 0.3,
         dataPoints: [
           { label: '电力消耗 / Electricity', value: '85 kWh' },
@@ -44,21 +44,21 @@ export const mockCarbonData: CarbonData[] = [
       { name: '辅料生产 / Trimmings', value: 0.1 }
     ]
   },
-  { 
-    stage: '生产制造 / Manufacturing', 
-    emissions: 2.5, 
+  {
+    stage: '生产制造 / Manufacturing',
+    emissions: 2.5,
     unit: 'kg CO2e',
     details: [
-      { 
-        name: '纺纱织造 / Spinning & Weaving', 
+      {
+        name: '纺纱织造 / Spinning & Weaving',
         value: 1.1,
         dataPoints: [
           { label: '设备电力 / Machine Power', value: '450 kWh' },
           { label: '车间照明 / Lighting', value: '25 kWh' }
         ]
       },
-      { 
-        name: '染色整理 / Dyeing & Finishing', 
+      {
+        name: '染色整理 / Dyeing & Finishing',
         value: 0.9,
         dataPoints: [
           { label: '水处理 / Water Treatment', value: '2.5 m³' },
@@ -68,9 +68,9 @@ export const mockCarbonData: CarbonData[] = [
       { name: '成衣缝制 / Cut & Sew', value: 0.5 }
     ]
   },
-  { 
-    stage: '物流运输 / Logistics', 
-    emissions: 0.4, 
+  {
+    stage: '物流运输 / Logistics',
+    emissions: 0.4,
     unit: 'kg CO2e',
     details: [
       { name: '工厂至仓库 / Factory to DC', value: 0.15 },
@@ -78,18 +78,18 @@ export const mockCarbonData: CarbonData[] = [
       { name: '最后一公里 / Last Mile', value: 0.05 }
     ]
   },
-  { 
-    stage: '分销零售 / Distribution', 
-    emissions: 0.2, 
+  {
+    stage: '分销零售 / Distribution',
+    emissions: 0.2,
     unit: 'kg CO2e',
     details: [
       { name: '仓储能耗 / Warehousing', value: 0.12 },
       { name: '门店运营 / Store Ops', value: 0.08 }
     ]
   },
-  { 
-    stage: '生命周期末端 / End-of-Life', 
-    emissions: 0.1, 
+  {
+    stage: '生命周期末端 / End-of-Life',
+    emissions: 0.1,
     unit: 'kg CO2e',
     details: [
       { name: '回收处理 / Recycling', value: 0.04 },
@@ -99,23 +99,23 @@ export const mockCarbonData: CarbonData[] = [
 ];
 
 export const mockCarbonSavings: CarbonSaving[] = [
-  { 
-    initiative: '可再生能源使用 / Renewable Energy', 
-    saving: 0.85, 
-    unit: 'kg CO2e', 
-    description: '工厂屋顶光伏发电系统供电 / Rooftop solar PV system' 
+  {
+    initiative: '可再生能源使用 / Renewable Energy',
+    saving: 0.85,
+    unit: 'kg CO2e',
+    description: '工厂屋顶光伏发电系统供电 / Rooftop solar PV system'
   },
-  { 
-    initiative: '低碳物流优化 / Logistics Optimization', 
-    saving: 0.12, 
-    unit: 'kg CO2e', 
-    description: '优化配送路线及使用电动货车 / Route optimization & EV delivery' 
+  {
+    initiative: '低碳物流优化 / Logistics Optimization',
+    saving: 0.12,
+    unit: 'kg CO2e',
+    description: '优化配送路线及使用电动货车 / Route optimization & EV delivery'
   },
-  { 
-    initiative: '再生包装材料 / Recycled Packaging', 
-    saving: 0.05, 
-    unit: 'kg CO2e', 
-    description: '使用 100% 可回收纸盒包装 / 100% Recycled paper packaging' 
+  {
+    initiative: '再生包装材料 / Recycled Packaging',
+    saving: 0.05,
+    unit: 'kg CO2e',
+    description: '使用 100% 可回收纸盒包装 / 100% Recycled paper packaging'
   }
 ];
 
@@ -315,7 +315,7 @@ export const mockDPP: DPPInstance = {
       dataClassification: 'RESTRICTED',
       sourceType: 'ENTERPRISE',
       blockchainHash: '0xgm123...',
-      garmentBatchId: '00PPB2AMVV991S2471112232',
+      garmentBatchId: 'TEE-WHT-ORG-M',
       factoryName: '苏南精工成衣代工厂',
       manufacturingDate: '2026-03-15',
       renewableEnergyRatio: 45.5,
