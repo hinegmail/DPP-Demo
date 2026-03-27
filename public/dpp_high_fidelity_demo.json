@@ -1,0 +1,340 @@
+{
+    "metadata": {
+        "updatedAt": "2026-03-27T17:15:00Z",
+        "description": "DPP 高保真 100% 字段映射全参数数据 - 丝巾专项版 (涵盖22张表所有物理字段)",
+        "version": "2.0.0"
+    },
+    "entities": {
+        "sys_enterprise": [
+            {
+                "id": 101,
+                "enterprise_code": "91310000MA1GXXXXXX",
+                "enterprise_name": "在宥文化创意集团有限公司",
+                "enterprise_type": "BRAND",
+                "contact_person": "马经理",
+                "contact_phone": "13812345678",
+                "is_verified": true,
+                "created_at": "2025-01-01T10:00:00Z"
+            },
+            {
+                "id": 102,
+                "enterprise_code": "91320500MA2GYYYYYY",
+                "enterprise_name": "苏州精工一号成衣厂",
+                "enterprise_type": "TIER1_GARMENT",
+                "contact_person": "王厂长",
+                "is_verified": true
+            }
+        ],
+        "sys_users": [
+            {
+                "id": 1,
+                "tenant_id": 101,
+                "username": "brand_admin",
+                "real_name": "张三",
+                "status": 1
+            }
+        ]
+    },
+    "passports": [
+        {
+            "dpp_instance": {
+                "id": 1,
+                "tenant_id": 101,
+                "dpp_id": "SGTIN-SILK-001-2026",
+                "product_master_id": 1,
+                "garment_batch_node_id": 1,
+                "digital_link": "https://dpp.zaiyou.com/passport/silk001",
+                "qr_code": "QR_SILK_001_HASH_A8B9C",
+                "data_provider": "在宥文化供应链管理部",
+                "data_verification_status": "VERIFIED_BY_PLATFORM",
+                "public_data_flag": true,
+                "access_level": {"roles": ["PUBLIC", "SUPPLIER", "AUDITOR"]},
+                "blockchain_record": "0x7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b",
+                "product_carbon_footprint": 1.25,
+                "water_footprint": 3.1,
+                "renewable_energy_ratio": 72.5,
+                "waste_generation": 0.15,
+                "waste_recycling_rate": 85.0,
+                "scope1_emission": 0.2,
+                "scope2_emission": 0.3,
+                "scope3_emission": 0.75,
+                "data_classification": "PUBLIC",
+                "source_type": "ENTERPRISE",
+                "created_by": 1,
+                "created_at": "2026-03-25T10:00:00Z"
+            },
+            "product_master": {
+                "id": 1,
+                "tenant_id": 101,
+                "product_id": "PRD-SILK-90",
+                "sku": "SILK-WHT-90-001",
+                "product_name": "可持续桑蚕丝经典丝巾 (90x90cm)",
+                "brand_name": "在宥文化 (ZAIYOU)",
+                "product_category": "配饰/丝巾",
+                "product_description": "采用100%新疆顶级桑蚕丝，苏州传统工艺织造，触感丝滑，光泽柔和。",
+                "color": "优雅白",
+                "size": "90*90cm",
+                "material_composition": [
+                    {"code": "SILK-001", "name": "新疆桑蚕丝", "pct": 100}
+                ],
+                "durability_score": 4.8,
+                "wash_cycles": 60,
+                "repairability": {"score": 80, "options": ["原厂复原织法", "补色服务"]},
+                "disassembly_instruction": {"tags": "不锈钢拆解针", "steps": ["拆除手工缝边", "取出品牌标识"]},
+                "recyclability": {"is_recyclable": true, "method": "纺织品物理纤维再生"},
+                "recycled_material_ratio": 0.0,
+                "reuse_potential": {"score": 95, "channels": ["二手转售", "收藏"]},
+                "end_of_life_guidance": "请勿随意丢弃，建议参与在宥回收置换计划。",
+                "sorting_instruction": "干垃圾 / 可回收物",
+                "circular_design_score": 88.0,
+                "packaging": "FSC认证环保纸盒",
+                "gb18401_category": "A类",
+                "care_label_symbols": ["wash_30", "no_bleach", "iron_low", "p_clean"],
+                "data_classification": "PUBLIC",
+                "source_type": "ENTERPRISE",
+                "created_by": 1,
+                "created_at": "2026-01-10T14:30:00Z"
+            },
+            "supply_chain": {
+                "garment_batch_node": {
+                    "id": 1,
+                    "tenant_id": 102,
+                    "garment_batch_id": "G-BATCH-202603",
+                    "product_master_id": 1,
+                    "manufacturer_name": "苏州精工一号成衣厂",
+                    "country_of_origin": "CN",
+                    "manufacturing_date": "2026-03-20",
+                    "weight": 0.095,
+                    "energy_consumption": 1.2,
+                    "defect_rate": 0.5,
+                    "inspection_result": "合格 - 无残留甲醛，拉力测试通过",
+                    "renewable_energy_ratio": 65.0,
+                    "data_classification": "RESTRICTED",
+                    "source_type": "ENTERPRISE",
+                    "created_by": 10,
+                    "created_at": "2026-03-20T17:00:00Z"
+                },
+                "fabric_batch_node": {
+                    "id": 1,
+                    "tenant_id": 103,
+                    "fabric_batch_id": "FB-SILK-2026A",
+                    "garment_batch_node_id": 1,
+                    "fabric_supplier": "苏南丝丝绸织造厂",
+                    "primary_fiber_type": "桑蚕丝",
+                    "secondary_fiber_type": "None",
+                    "fiber_percentage": [{"code": "SILK", "pct": 100}],
+                    "recycled_content_percentage": 0.0,
+                    "organic_content_percentage": 100.0,
+                    "synthetic_fiber_content": 0.0,
+                    "bio_based_content": 100.0,
+                    "energy_consumption": 15.6,
+                    "renewable_energy_ratio": 40.0,
+                    "data_classification": "RESTRICTED",
+                    "source_type": "ENTERPRISE",
+                    "created_by": 20
+                },
+                "dyeing_batch_node": {
+                    "id": 1,
+                    "tenant_id": 104,
+                    "dyeing_batch_id": "DB-SUZHOU-001",
+                    "fabric_batch_node_id": 1,
+                    "dyeing_factory": "苏州市环保印染厂",
+                    "dye_type": "植物活性染料",
+                    "chemical_list": [{"name": "靛蓝提取液", "cas_no": "482-89-3", "usage_kg": 5.2}],
+                    "chemical_supplier": "绿色化学有限公司",
+                    "reach_compliance": true,
+                    "restricted_substances": false,
+                    "azo_dyes_presence": false,
+                    "formaldehyde_content": 0.0,
+                    "heavy_metals_content": 2.1,
+                    "ph_value": 7.0,
+                    "water_consumption": 5.5,
+                    "energy_consumption": 22.1,
+                    "wastewater_treatment": "三级沉淀+生物滤池",
+                    "cod_emission": 50.0,
+                    "zdhc_compliance": true,
+                    "renewable_energy_ratio": 35.0,
+                    "data_classification": "CONFIDENTIAL",
+                    "source_type": "CERTIFICATE"
+                },
+                "yarn_batch_node": {
+                    "id": 1,
+                    "tenant_id": 105,
+                    "yarn_batch_id": "YB-XINJIANG-092",
+                    "fabric_batch_node_id": 1,
+                    "yarn_supplier": "苏特原料纺纱有限公司",
+                    "water_consumption": 0.8,
+                    "energy_consumption": 8.5,
+                    "carbon_emission": 0.15,
+                    "renewable_energy_ratio": 20.0,
+                    "data_classification": "RESTRICTED",
+                    "source_type": "ENTERPRISE"
+                },
+                "fiber_batch_node": {
+                    "id": 1,
+                    "tenant_id": 106,
+                    "fiber_batch_id": "FB-MULBERRY-001",
+                    "yarn_batch_node_id": 1,
+                    "fiber_supplier": "新疆优质桑蚕丝基地",
+                    "material_origin_country": "CN",
+                    "water_consumption": 2.5,
+                    "carbon_emission": 0.35,
+                    "data_classification": "RESTRICTED",
+                    "source_type": "CERTIFICATE"
+                },
+                "accessories_batch_node": [
+                    {
+                        "id": 1,
+                        "tenant_id": 107,
+                        "accessory_batch_id": "ACC-LABEL-01",
+                        "garment_batch_node_id": 1,
+                        "accessory_type": "品牌织标",
+                        "accessory_material": "再生涤纶",
+                        "accessory_supplier": "精细标识厂",
+                        "chemical_compliance": true,
+                        "data_classification": "PUBLIC"
+                    }
+                ],
+                "logistics_node": [
+                    {
+                        "id": 1,
+                        "tenant_id": 108,
+                        "shipment_id": "LOG-SH-2026-X1",
+                        "garment_batch_node_id": 1,
+                        "transport_mode": "TRUCK",
+                        "carrier": "顺丰冷链/特快",
+                        "distance": 120.5,
+                        "co2_emission": 0.08,
+                        "data_classification": "PUBLIC"
+                    }
+                ]
+            },
+            "compliance_assets": [
+                {
+                    "id": 1,
+                    "tenant_id": 101,
+                    "cert_id": "CERT-GOTS-88291",
+                    "dpp_instance_id": 1,
+                    "cert_type": "GOTS",
+                    "target_supplier": "苏南丝丝绸织造厂",
+                    "lab_name": "SGS苏州实验室",
+                    "certificate_issue_date": "2025-10-15",
+                    "certificate_expiry_date": "2026-10-14",
+                    "audit_report": "https://oss.zaiyou.com/reports/gots_88291.pdf",
+                    "target_batch_id": "FB-SILK-2026A",
+                    "blockchain_hash": "0x8e8205b280b00b08be45822b30ec8a759bb49a6576088fb6c3bae9df3e4fba77d",
+                    "data_classification": "PUBLIC"
+                }
+            ],
+            "lifecycle_deferred": {
+                "distribution": [
+                    {
+                        "id": 1,
+                        "tenant_id": 101,
+                        "distribution_id": "DIST-BJD001",
+                        "dpp_instance_id": 1,
+                        "channel_type": "OFFLINE_STORE",
+                        "retailer_name": "在宥北京王府井旗舰店",
+                        "ship_to_country": "CN",
+                        "sale_date": "2026-04-01",
+                        "sale_price": 1299.00,
+                        "data_classification": "PUBLIC"
+                    }
+                ],
+                "usage": [
+                    {
+                        "id": 1,
+                        "tenant_id": 101,
+                        "usage_record_id": "USAGE-USER-992",
+                        "dpp_instance_id": 1,
+                        "owner_type": "ORIGINAL_BUYER",
+                        "activation_date": "2026-04-02",
+                        "wash_count": 5,
+                        "condition_grade": "A",
+                        "ownership_transfer_count": 0,
+                        "data_classification": "PUBLIC"
+                    }
+                ],
+                "repair": [],
+                "recycling": [],
+                "sorting_guide": {
+                    "id": 1,
+                    "tenant_id": 101,
+                    "sorting_guide_id": "SG-SILK-001",
+                    "product_master_id": 1,
+                    "bin_type": "纺织品回收箱",
+                    "instructions": ["1. 拆卸金属挂钩", "2. 轻折叠入箱"],
+                    "prohibited_actions": ["不可切碎后投入", "不可湿态投入"],
+                    "local_regulation": "北京市生活垃圾管理条例",
+                    "data_classification": "PUBLIC"
+                }
+            }
+        },
+        {
+            "dpp_instance": {
+                "id": 2,
+                "tenant_id": 101,
+                "dpp_id": "SGTIN-RPET-002-2026",
+                "product_master_id": 2,
+                "garment_batch_node_id": 2,
+                "product_carbon_footprint": 0.98,
+                "water_footprint": 0.45,
+                "data_classification": "PUBLIC",
+                "source_type": "ENTERPRISE",
+                "created_at": "2026-03-26T14:00:00Z"
+            },
+            "product_master": {
+                "id": 2,
+                "tenant_id": 101,
+                "product_id": "PRD-RPET-SPORT",
+                "sku": "RPET-BLK-001",
+                "product_name": "再生聚酯性能运动丝巾",
+                "product_category": "配饰/运动围巾",
+                "material_composition": [{"code": "RPET-01", "name": "再生聚酯 (海洋塑料)", "pct": 100}],
+                "circular_design_score": 92.5,
+                "recycled_material_ratio": 100.0,
+                "data_classification": "PUBLIC"
+            },
+            "supply_chain": {
+                "garment_batch_node": {
+                    "id": 2,
+                    "manufacturer_name": "泉州运动服饰一号厂",
+                    "country_of_origin": "CN",
+                    "manufacturing_date": "2026-03-22"
+                },
+                "fabric_batch_node": {
+                    "id": 2,
+                    "fabric_supplier": "宁波高新化纤厂",
+                    "primary_fiber_type": "再生涤纶",
+                    "fiber_percentage": [{"code": "REC-PET", "pct": 100}],
+                    "recycled_content_percentage": 100.0
+                },
+                "dyeing_batch_node": {
+                    "id": 2,
+                    "dyeing_factory": "浙江嘉化数字印花中心",
+                    "dye_type": "无水数码印花",
+                    "zdhc_compliance": true
+                },
+                "fiber_batch_node": {
+                    "id": 2,
+                    "fiber_supplier": "东海海洋塑料回收站",
+                    "material_origin_country": "CN"
+                }
+            },
+            "compliance_assets": [
+                {
+                    "id": 2,
+                    "cert_id": "CERT-GRS-2026-A",
+                    "cert_type": "GRS",
+                    "target_supplier": "宁波高新化纤厂"
+                }
+            ],
+            "lifecycle_deferred": {
+                "sorting_guide": {
+                    "sorting_guide_id": "SG-RPET-002",
+                    "bin_type": "塑料回收/织物回收"
+                }
+            }
+        }
+    ]
+}
